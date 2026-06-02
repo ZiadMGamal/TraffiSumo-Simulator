@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net version="1.16" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,1000.00,1000.00" origBoundary="-10000000000000000000.00,-10000000000000000000.00,10000000000000000000.00,10000000000000000000.00" projParameter="!"/>
+    <edge id=":C0_0" function="internal">
+        <lane id=":C0_0_0" index="0" speed="13.89" length="14.40" shape="500.00,492.80 500.00,507.20"/>
+    </edge>
+    <edge id=":C0_1" function="internal">
+        <lane id=":C0_1_0" index="0" speed="13.89" length="14.40" shape="507.20,500.00 492.80,500.00"/>
+    </edge>
+    <edge id=":C0_2" function="internal">
+        <lane id=":C0_2_0" index="0" speed="13.89" length="14.40" shape="500.00,507.20 500.00,492.80"/>
+    </edge>
+    <edge id=":C0_3" function="internal">
+        <lane id=":C0_3_0" index="0" speed="13.89" length="14.40" shape="492.80,500.00 507.20,500.00"/>
+    </edge>
+    <edge id=":C1_0" function="internal">
+        <lane id=":C1_0_0" index="0" speed="13.89" length="14.40" shape="500.00,992.80 500.00,1007.20"/>
+    </edge>
+    <edge id=":C1_1" function="internal">
+        <lane id=":C1_1_0" index="0" speed="13.89" length="14.40" shape="507.20,1000.00 492.80,1000.00"/>
+    </edge>
+    <edge id=":C1_2" function="internal">
+        <lane id=":C1_2_0" index="0" speed="13.89" length="14.40" shape="500.00,1007.20 500.00,992.80"/>
+    </edge>
+    <edge id=":C1_3" function="internal">
+        <lane id=":C1_3_0" index="0" speed="13.89" length="14.40" shape="492.80,1000.00 507.20,1000.00"/>
+    </edge>
+    <edge id="E0" from="C0" to="C1" priority="1">
+        <lane id="E0_0" index="0" speed="13.89" length="485.60" shape="500.00,507.20 500.00,992.80"/>
+    </edge>
+    <edge id="E1" from="C1" to="C0" priority="1">
+        <lane id="E1_0" index="0" speed="13.89" length="485.60" shape="500.00,992.80 500.00,507.20"/>
+    </edge>
+    <edge id="E2" from="C0" to="C0" priority="1">
+        <lane id="E2_0" index="0" speed="13.89" length="485.60" shape="507.20,500.00 992.80,500.00"/>
+    </edge>
+    <edge id="E3" from="C0" to="C0" priority="1">
+        <lane id="E3_0" index="0" speed="13.89" length="485.60" shape="492.80,500.00 7.20,500.00"/>
+    </edge>
+    <edge id="E4" from="C1" to="C1" priority="1">
+        <lane id="E4_0" index="0" speed="13.89" length="485.60" shape="507.20,1000.00 992.80,1000.00"/>
+    </edge>
+    <edge id="E5" from="C1" to="C1" priority="1">
+        <lane id="E5_0" index="0" speed="13.89" length="485.60" shape="492.80,1000.00 7.20,1000.00"/>
+    </edge>
+    <junction id="C0" type="traffic_light" x="500.00" y="500.00" incLanes="E1_0 E3_0" intLanes=":C0_0_0 :C0_1_0 :C0_2_0 :C0_3_0" shape="500.00,500.00">
+        <request index="0" response="00" foes="00" cont="0"/>
+        <request index="1" response="00" foes="00" cont="0"/>
+        <request index="2" response="00" foes="00" cont="0"/>
+        <request index="3" response="00" foes="00" cont="0"/>
+    </junction>
+    <junction id="C1" type="traffic_light" x="500.00" y="1000.00" incLanes="E0_0 E5_0" intLanes=":C1_0_0 :C1_1_0 :C1_2_0 :C1_3_0" shape="500.00,1000.00">
+        <request index="0" response="00" foes="00" cont="0"/>
+        <request index="1" response="00" foes="00" cont="0"/>
+        <request index="2" response="00" foes="00" cont="0"/>
+        <request index="3" response="00" foes="00" cont="0"/>
+    </junction>
+    <connection from="E1" to="E0" fromLane="0" toLane="0" via=":C0_0_0" tl="C0" linkIndex="0" dir="s" state="O"/>
+    <connection from="E3" to="E2" fromLane="0" toLane="0" via=":C0_3_0" tl="C0" linkIndex="3" dir="s" state="O"/>
+    <connection from="E0" to="E1" fromLane="0" toLane="0" via=":C1_2_0" tl="C1" linkIndex="2" dir="s" state="O"/>
+    <connection from="E5" to="E4" fromLane="0" toLane="0" via=":C1_3_0" tl="C1" linkIndex="3" dir="s" state="O"/>
+    <tlLogic id="C0" type="static" programID="0" offset="0">
+        <phase duration="31" state="GGrr"/>
+        <phase duration="5" state="yyrr"/>
+        <phase duration="31" state="rrGG"/>
+        <phase duration="5" state="rryy"/>
+    </tlLogic>
+    <tlLogic id="C1" type="static" programID="0" offset="0">
+        <phase duration="31" state="GGrr"/>
+        <phase duration="5" state="yyrr"/>
+        <phase duration="31" state="rrGG"/>
+        <phase duration="5" state="rryy"/>
+    </tlLogic>
+</net>
